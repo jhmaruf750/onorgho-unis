@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -34,3 +35,86 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+=======
+# ONORGHO UNIS — Batch of 2019
+
+Official archive website of **ONORGHO UNIS**,  
+Batch of 2019 — Shibganj Government Model High School.
+
+Preserving memories, unity, and legacy.
+
+---
+
+## 🌟 About The Project
+
+This website serves as a digital archive for the students of SSC Batch 2019.  
+It is designed to preserve our shared journey — from classrooms to reunions —  
+celebrating friendship, growth, and lifelong bonds.
+
+The platform showcases:
+
+- Batch members
+- Timeline of milestones
+- Gallery of memories
+- School legacy
+- Reunion highlights
+
+---
+
+## 🚀 Live Website
+
+(Will be added after deployment)
+
+---
+
+## 🛠️ Built With
+
+- Next.js (App Router)
+- React
+- Tailwind CSS
+- TypeScript
+- Vercel Deployment
+
+---
+
+## 📂 Project Structure
+
+public/
+images/
+gallery/
+batch/
+school/
+events/
+memories/
+
+src/
+app/
+components/
+
+
+---
+
+## 🎯 Purpose
+
+This archive is not just a website.  
+It is a reflection of our unity, brotherhood, and shared dreams.
+
+We move forward in different paths,
+but remain connected by one identity —
+
+**ONORGHO UNIS.**
+
+---
+
+## 👨‍💻 Developed & Designed By
+
+JH MaRuF  
+RUET,CSE'21
+Batch of 2019
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License.
+>>>>>>> 90d60178b2bd49a648529bc875cf4ad1fdcd9a3e
