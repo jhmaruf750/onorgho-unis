@@ -41,3 +41,41 @@ The platform showcases:
 
 ## 📂 Project Structure
 
+public/
+images/
+gallery/
+batch/
+school/
+events/
+memories/
+
+src/
+app/
+components/
+
+
+---
+
+## 🎯 Purpose
+
+This archive is not just a website.  
+It is a reflection of our unity, brotherhood, and shared dreams.
+
+We move forward in different paths,
+but remain connected by one identity —
+
+**ONORGHO UNIS.**
+
+---
+
+## 👨‍💻 Developed & Designed By
+
+JH MaRuF  
+RUET,CSE'21
+Batch of 2019
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License.
