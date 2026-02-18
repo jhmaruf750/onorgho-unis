@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import PageTransition from "../components/PageTransition";
 import BackToTop from "../components/BackToTop";
-import { ThemeProvider } from "next-themes";
+import ThemeProviderWrapper from "../components/ThemeProviderWrapper";
 
 export const metadata = {
   title: "ONORGHO UNIS - Batch of 2019",
@@ -18,12 +18,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white antialiased animated-bg transition-colors duration-300">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} storageKey="theme">
+        <ThemeProviderWrapper>
           <Navbar />
           <PageTransition>{children}</PageTransition>
           <BackToTop />
           <Footer />
-        </ThemeProvider>
+        </ThemeProviderWrapper>
       </body>
     </html>
   );
