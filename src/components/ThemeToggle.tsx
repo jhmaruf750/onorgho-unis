@@ -1,40 +1,89 @@
 "use client";
 
-import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 export default function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
+  const [dark, setDark] = useState(true);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    const saved = localStorage.getItem("theme");
+
+    if (saved === "light") {
+      document.documentElement.classList.remove("dark");
+      setDark(false);
+    } else {
+      document.documentElement.classList.add("dark");
+      setDark(true);
+    }
+
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return (
-      <div className="inline-flex items-center justify-center w-9 h-9 rounded-md bg-gray-100 dark:bg-white/6" />
-    );
+  function toggleTheme() {
+    if (dark) {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    } else {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    }
+    setDark(!dark);
   }
 
-  const isDark = theme === "dark";
+  if (!mounted) return null;
 
   return (
     <button
-      aria-label="Toggle theme"
-      onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="inline-flex items-center justify-center w-9 h-9 rounded-md bg-white/6 hover:bg-white/10 dark:bg-white/6 dark:hover:bg-white/10 transition-all duration-300"
+      onClick={toggleTheme}
+      aria-label="Toggle Theme"
+      className="relative w-10 h-10 flex items-center justify-center rounded-xl
+                 bg-white/70 dark:bg-white/10
+                 backdrop-blur-md
+                 border border-gray-300/40 dark:border-white/10
+                 shadow-md
+                 hover:shadow-lg
+                 transition-all duration-500
+                 hover:scale-105 active:scale-95"
     >
-      {isDark ? (
-        <svg className="w-5 h-5 text-amber-300 transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      ) : (
-        <svg className="w-5 h-5 text-blue-600 dark:text-blue-400 transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path d="M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-          <circle cx="12" cy="12" r="3" strokeWidth="1.4" />
-        </svg>
-      )}
+      <div
+        className={`transition-transform duration-700 ${
+          dark ? "rotate-0 scale-100" : "rotate-180 scale-90"
+        }`}
+      >
+        {dark ? (
+          // 🌙 Premium Moon Icon
+          <svg
+            className="w-5 h-5 text-amber-300 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.7"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"
+            />
+          </svg>
+        ) : (
+          // ☀️ Premium Sun Icon
+          <svg
+            className="w-5 h-5 text-orange-500 drop-shadow-[0_0_10px_rgba(249,115,22,0.6)]"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            viewBox="0 0 24 24"
+          >
+            <circle cx="12" cy="12" r="4" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"
+            />
+          </svg>
+        )}
+      </div>
     </button>
   );
 }

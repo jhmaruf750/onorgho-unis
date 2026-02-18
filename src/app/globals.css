@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap');
 
 :root {
   --background: #ffffff;
@@ -22,7 +21,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   font-feature-settings: 'kern' 1;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -31,9 +30,29 @@ body {
 
 /* Bengali text rendering */
 [lang="bn"], .bengali, *:lang(bn) {
-  font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
+  font-family: var(--font-bengali), var(--font-body), sans-serif;
   font-feature-settings: 'kern' 1;
   text-rendering: optimizeLegibility;
+}
+
+/* Premium headings */
+.font-heading {
+  font-family: var(--font-heading), var(--font-body), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+.hero-title {
+  color: rgba(255,255,255,0.96);
+  letter-spacing: 0.02em;
+  text-shadow: 0 6px 18px rgba(0,0,0,0.28);
+}
+
+.hero-subtitle {
+  color: rgba(255,255,255,0.9);
+  text-shadow: 0 3px 10px rgba(0,0,0,0.18);
+}
+
+.hero-school {
+  color: rgba(255,255,255,0.78);
 }
 
 /* Smooth scrolling globally, but respect user preference */
@@ -272,22 +291,156 @@ html {
 }
 
 /* Navbar link underline animation and active styles */
-.nav-link { position: relative; display: inline-block; }
-.nav-link .nav-underline { position: relative; z-index: 2; }
+.nav-link { 
+  position: relative; 
+  display: inline-block; 
+}
+
+.nav-link .nav-underline { 
+  position: relative; 
+  z-index: 2; 
+}
+
 .nav-link::after {
   content: '';
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -6px;
-  height: 2px;
-  background: linear-gradient(90deg, #F59E0B, #FBBF24);
+  bottom: -2px;
+  height: 2.5px;
+  background: linear-gradient(90deg, #F59E0B, #FBBF24, #FCD34D);
   transform-origin: left center;
   transform: scaleX(0);
-  transition: transform 260ms cubic-bezier(.2,.9,.3,1);
+  transition: transform 320ms cubic-bezier(0.4, 0, 0.2, 1), opacity 320ms ease;
+  opacity: 0;
+  border-radius: 1px;
+  box-shadow: 0 1px 3px rgba(251, 191, 36, 0.3);
 }
-.nav-link:hover::after { transform: scaleX(1); }
-.nav-link[aria-current='true'] { color: #FBBF24; }
+
+.nav-link:hover::after { 
+  transform: scaleX(1); 
+  opacity: 0.9; 
+}
+
+.nav-link[aria-current='page']::after { 
+  transform: scaleX(1); 
+  opacity: 1; 
+  height: 2.5px;
+  box-shadow: 0 1px 4px rgba(251, 191, 36, 0.4);
+}
+
+@keyframes gradient {
+  0% { background-position: 0% }
+  100% { background-position: 200% }
+}
+
+.animate-gradient {
+  background-size: 200% auto;
+  animation: gradient 4s linear infinite;
+}
+/* Gradient Text */
+@keyframes gradientMove {
+  0% { background-position: 0% }
+  100% { background-position: 200% }
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #f59e0b, #f97316, #f59e0b);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 4s linear infinite;
+}
+
+/* Glass */
+.glass {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Hover Lift */
+.lift {
+  transition: all 0.5s ease;
+}
+
+.lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Floating Soft */
+@keyframes floatSoft {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.float-soft {
+  animation: floatSoft 6s ease-in-out infinite;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 5s linear infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% }
+  100% { background-position: 200% }
+}
+
+.glass {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.dark .glass {
+  background: rgba(255,255,255,0.05);
+}
+
+.lift {
+  transition: all 0.5s ease;
+}
+
+.lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 40px rgba(0,0,0,0.15);
+}
+.footer-link {
+  color: #94a3b8;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer-link:hover {
+  color: #fbbf24;
+}
+
+.footer-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 1px;
+  background: #fbbf24;
+  transition: width 0.3s ease;
+}
+
+.footer-link:hover::after {
+  width: 100%;
+}
+
 
 
 
