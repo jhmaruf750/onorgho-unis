@@ -63,7 +63,7 @@ The platform showcases:
 
 ## 🚀 Live Website
 
-(Will be added after deployment)
+https://onorgho-unis.vercel.app/
 
 ---
 
@@ -117,4 +117,3 @@ Batch of 2019
 ## 📜 License
 
 This project is licensed under the MIT License.
->>>>>>> 90d60178b2bd49a648529bc875cf4ad1fdcd9a3e
