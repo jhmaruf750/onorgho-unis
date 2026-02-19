@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -110,7 +110,7 @@ but remain connected by one identity —
 
 JH MaRuF  
 RUET,CSE'21
-Batch of 2019
+
 
 ---
 
